@@ -31,6 +31,7 @@ SELECT * FROM person WHERE favorite_color IN('Orange', 'Green', 'Blue')
 SELECT * FROM person WHERE favorite_color IN ('Yellow', 'Purple')
 
 --------------------------------
+--table instructions
 
 CREATE TABLE orders (
     id SERIAL PRIMARY KEY,
@@ -48,17 +49,28 @@ VALUES
 ('Jill', 4, 'd', 4, 4),
 ('Janet', 5, 'e', 5, 5)
 
+SELECT 1 FROM orders;
+SELECT 2 FROM orders;
+SELECT * FROM orders;
+SELECT SUM(quantity) FROM orders;
+SELECT SUM(product_price * quantity) FROM orders;
+SELECT SUM(product_price * quantity) FROM orders WHERE person_id = 1;
 
+------------------------------------
+--table artist
 
+INSERT INTO artist (name)
+VALUES ('Jimmy')
 
-/*Table - orders
-Instructions
-Create a table called orders that records: order_id, person_id, product_name, product_price, quantity.
-Add 5 orders to the orders table.
-Make orders for at least two different people.
-person_id should be different for different people.
-Select all the records from the orders table.
-Calculate the total number of products ordered.
-Calculate the total order price.
-Calculate the total order price by a single person_id.*/
+SELECT * FROM artist ORDER BY name DESC LIMIT 10;
+SELECT * FROM artist ORDER BY ASC LIMIT 5;
+SELECT * FROM artist WHERE name LIKE 'Black%';
+SELECT * FROM artist WHERE name LIKE '%Black%';
 
+------------------------------------
+--table employee
+SELECT first_name, last_name, FROM employee WHERE city = 'Calgary';
+SELECT MAX(birth_date) FROM employee;
+SELECT MIN(birth_date) FROM emplpoyee;
+SELECT * FROM employee WHERE reports_to = 2;
+SELECT COUNT(*) FROM employee WHERE city = 'Lethbridge';
